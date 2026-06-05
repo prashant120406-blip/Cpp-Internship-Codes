@@ -13,10 +13,10 @@ struct Student {
     string age;
 };
 
-void addStudent();
-void displayAllStudents();
-void updateStudent();
-void deleteStudent();
+void addStu();
+void displayAllStu();
+void updateStu();
+void deleteStu();
 void showMenu();
 
 const string FILE_NAME = "stu_data.txt";
@@ -35,19 +35,19 @@ int main() {
 
         switch (choice) {
             case 1:
-                addStudent();
+                addStu();
                 break;
             case 2:
-                displayAllStudents();
+                displayAllStu();
                 break;
             case 3:
-                updateStudent();
+                updateStu();
                 break;
             case 4:
-                deleteStudent();
+                deleteStu();
                 break;
             case 5:
-                cout << "\nExiting the system.\n";
+                cout << "\nExit\n";
                 return 0;
             default:
                 cout << "Invalid choice! Please try again.\n";
@@ -64,14 +64,14 @@ void showMenu() {
     cout << "2. Display All Student Records\n";
     cout << "3. Update Student Record\n";
     cout << "4. Delete Student Record\n";
-    cout << "5. Exit System\n";
+    cout << "5. Exit\n";
     cout << "-----------------------------------------\n";
 }
 
-void addStudent() {
+void addStu() {
     ofstream outFile(FILE_NAME, ios::app);
     if (!outFile) {
-        cout << "Error opening file for writing!\n";
+        cout << "Error opening file!\n";
         return;
     }
 
@@ -94,7 +94,7 @@ void addStudent() {
     cout << "\nRecord added successfully!\n";
 }
 
-void displayAllStudents() {
+void displayAllStu() {
     ifstream inFile(FILE_NAME);
     if (!inFile) {
         cout << "\nNo records found\n";
@@ -130,7 +130,7 @@ void displayAllStudents() {
     inFile.close();
 }
 
-void updateStudent() {
+void updateStu() {
     ifstream inFile(FILE_NAME);
     if (!inFile) {
         cout << "\nNo records found to update.\n";
@@ -187,10 +187,10 @@ void updateStudent() {
     cout << "\nRecord updated successfully!\n";
 }
 
-void deleteStudent() {
+void deleteStu() {
     ifstream inFile(FILE_NAME);
     if (!inFile) {
-        cout << "\nNo records found to delete.\n";
+        cout << "\nNo records found.\n";
         return;
     }
 
@@ -235,5 +235,5 @@ void deleteStudent() {
     }
     outFile.close();
 
-    cout << "\nRecord deleted successfully!\n";
+    cout << "\nRecord deleted successfully.\n";
 }
